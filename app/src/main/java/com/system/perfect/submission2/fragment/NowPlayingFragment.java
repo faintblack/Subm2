@@ -19,7 +19,6 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.system.perfect.submission2.BuildConfig;
 import com.system.perfect.submission2.DetailMovieActivity;
-import com.system.perfect.submission2.MainActivity;
 import com.system.perfect.submission2.R;
 import com.system.perfect.submission2.adapter.NowPlayingAdapter;
 import com.system.perfect.submission2.model.Movie;
