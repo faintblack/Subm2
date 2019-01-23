@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,10 +20,9 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.system.perfect.submission2.BuildConfig;
 import com.system.perfect.submission2.R;
-import com.system.perfect.submission2.adapter.UpcomingAdapter;
-import com.system.perfect.submission2.detail.DetailUpcomingActivity;
+import com.system.perfect.submission2.adapter.PopularAdapter;
+import com.system.perfect.submission2.detail.DetailPopularActivity;
 import com.system.perfect.submission2.model.PopularMovie;
-import com.system.perfect.submission2.model.UpcomingMovie;
 import com.system.perfect.submission2.support.ItemClickSupport;
 
 import org.json.JSONArray;
@@ -53,27 +53,27 @@ public class PopularFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.all_movies_layout, container, false);
-        rvPopular = v.findViewById(R.id.rv_upcoming);
+        rvPopular = v.findViewById(R.id.rv_all_movies);
         rvPopular.setHasFixedSize(true);
-        showUpcomingList();
+        showPopularList();
         return v;
     }
 
-    public void showUpcomingList(){
-        rvPopular.setLayoutManager(new GridLayoutManager(getContext(),2));
-        //UpcomingAdapter mAdapter = new UpcomingAdapter(getContext());
-        //mAdapter.setMovieList(popularMovies);
-        //rvPopular.setAdapter(mAdapter);
+    public void showPopularList(){
+        rvPopular.setLayoutManager(new LinearLayoutManager(getContext()));
+        PopularAdapter mAdapter = new PopularAdapter(getContext());
+        mAdapter.setMovieList(popularMovies);
+        rvPopular.setAdapter(mAdapter);
 
-        /*ItemClickSupport.addTo(rvPopular).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+        ItemClickSupport.addTo(rvPopular).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-                UpcomingMovie item = popularMovies.get(position);
-                Intent detailMovieIntent = new Intent(getActivity(), DetailUpcomingActivity.class);
-                detailMovieIntent.putExtra(DetailUpcomingActivity.EXTRA_MOVIE, item);
+                PopularMovie item = popularMovies.get(position);
+                Intent detailMovieIntent = new Intent(getActivity(), DetailPopularActivity.class);
+                detailMovieIntent.putExtra(DetailPopularActivity.EXTRA_MOVIE, item);
                 startActivity(detailMovieIntent);
             }
-        }); */
+        });
     }
 
     private void requestMovieData() {

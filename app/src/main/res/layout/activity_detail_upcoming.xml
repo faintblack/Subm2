@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailNowPlayingActivity">
+    tools:context=".detail.DetailUpcomingActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar_layout"
@@ -72,15 +72,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="120dp" />
                     <LinearLayout
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginStart="10dp"
                         android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
                         <TextView
                             android:textColor="@color/colorPrimaryDark"
-                            android:textSize="20dp"
+                            android:textSize="20sp"
                             android:textStyle="bold"
-                            android:text="Judul Film"
+                            tools:text="Judul Film"
                             android:id="@+id/tvDetailJudul"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -91,20 +91,20 @@
 
                             <LinearLayout
                                 android:layout_marginTop="@dimen/vertical_margin"
-                                android:layout_marginRight="@dimen/horizontal_margin"
+                                android:layout_marginEnd="@dimen/horizontal_margin"
                                 android:orientation="vertical"
                                 android:layout_width="100dp"
                                 android:layout_height="wrap_content">
                                 <TextView
                                     android:textColor="#000"
-                                    android:text="Release Date"
+                                    android:text="@string/release"
                                     android:layout_marginTop="@dimen/vertical_margin"
                                     android:id="@+id/tvKetRilis"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content" />
                                 <TextView
                                     android:textColor="#000"
-                                    android:text="Rating"
+                                    android:text="@string/rating"
                                     android:id="@+id/tvKetRating"
                                     android:layout_marginTop="@dimen/vertical_margin"
                                     android:layout_width="match_parent"
@@ -138,18 +138,18 @@
                 <TextView
                     android:textColor="#000"
                     android:textStyle="bold"
-                    android:textSize="15dp"
+                    android:textSize="15sp"
                     android:layout_marginTop="@dimen/vertical_margin"
                     android:layout_marginRight="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginBottom="@dimen/vertical_margin"
-                    android:text="Synopsys : "
+                    android:text="@string/overview"
                     android:id="@+id/tvKetSinopsis"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <TextView
                     tools:text="Lorep ipsum adalah text bodoh yang tidak berguna dan berarti apa-apa. Jika anda berpikir itu ada gunanya, berarti anda kurang kerjaan"
-                    android:textSize="12dp"
+                    android:textSize="12sp"
                     android:textColor="#000"
                     android:layout_marginRight="15dp"
                     android:layout_marginLeft="15dp"

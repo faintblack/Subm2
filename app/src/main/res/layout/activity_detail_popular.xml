@@ -5,10 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".detail.DetailNowPlayingActivity">
+    tools:context=".detail.DetailPopularActivity">
 
     <android.support.design.widget.AppBarLayout
-        android:id="@+id/app_bar_layout"
+        android:id="@+id/app_bar_layout_detail_popular"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:fitsSystemWindows="true"
         android:layout_width="match_parent"
@@ -23,14 +23,14 @@
             android:fitsSystemWindows="true">
 
             <ImageView
-                android:id="@+id/backdrop_image"
+                android:id="@+id/backdrop_image_detail_popular"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/colorPrimary"
                 android:contentDescription="@string/app_name"
                 app:layout_collapseMode="parallax" />
             <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
+                android:id="@+id/toolbar_detail_popular"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
@@ -68,7 +68,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <ImageView
-                        android:id="@+id/posterSmall"
+                        android:id="@+id/posterSmall_detail_popular"
                         android:layout_width="wrap_content"
                         android:layout_height="120dp" />
                     <LinearLayout
@@ -81,7 +81,7 @@
                             android:textSize="20dp"
                             android:textStyle="bold"
                             android:text="Judul Film"
-                            android:id="@+id/tvDetailJudul"
+                            android:id="@+id/tvDetailJudul_detail_popular"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
                         <LinearLayout
@@ -97,15 +97,15 @@
                                 android:layout_height="wrap_content">
                                 <TextView
                                     android:textColor="#000"
-                                    android:text="Release Date"
+                                    android:text="@string/release"
                                     android:layout_marginTop="@dimen/vertical_margin"
-                                    android:id="@+id/tvKetRilis"
+                                    android:id="@+id/tvKetRilis_detail_popular"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content" />
                                 <TextView
                                     android:textColor="#000"
-                                    android:text="Rating"
-                                    android:id="@+id/tvKetRating"
+                                    android:text="@string/rating"
+                                    android:id="@+id/tvKetRating_detail_popular"
                                     android:layout_marginTop="@dimen/vertical_margin"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content" />
@@ -118,13 +118,13 @@
                                 <TextView
                                     tools:text="14 Januari 2019"
                                     android:textColor="#000"
-                                    android:id="@+id/tvDetailRilis"
+                                    android:id="@+id/tvDetailRilis_detail_popular"
                                     android:layout_marginTop="@dimen/vertical_margin"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content" />
                                 <TextView
                                     android:textColor="#000"
-                                    android:id="@+id/tvVoteAverage"
+                                    android:id="@+id/tvVoteAverage_detail_popular"
                                     android:layout_marginTop="@dimen/vertical_margin"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content" />
@@ -138,23 +138,23 @@
                 <TextView
                     android:textColor="#000"
                     android:textStyle="bold"
-                    android:textSize="15dp"
+                    android:textSize="15sp"
                     android:layout_marginTop="@dimen/vertical_margin"
                     android:layout_marginRight="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginBottom="@dimen/vertical_margin"
-                    android:text="Synopsys : "
-                    android:id="@+id/tvKetSinopsis"
+                    android:text="@string/overview"
+                    android:id="@+id/tvKetSinopsis_detail_popular"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <TextView
                     tools:text="Lorep ipsum adalah text bodoh yang tidak berguna dan berarti apa-apa. Jika anda berpikir itu ada gunanya, berarti anda kurang kerjaan"
-                    android:textSize="12dp"
+                    android:textSize="12sp"
                     android:textColor="#000"
                     android:layout_marginRight="15dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginBottom="@dimen/vertical_margin"
-                    android:id="@+id/tvDetailSinopsis"
+                    android:id="@+id/tvDetailSinopsis_detail_popular"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </LinearLayout>

@@ -96,4 +96,10 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="title_activity_detail_movie2">DetailMovie2Activity</string>
+    <string name="title_activity_detail_popular">DetailPopularActivity</string>
+    <string name="release">Release Date</string>
+    <string name="rating">Rating</string>
+    <string name="overview">Synopsys :</string>
+    <string name="search_hint">Type to search</string>
+    <string name="btn_search">Search</string>
 </resources>

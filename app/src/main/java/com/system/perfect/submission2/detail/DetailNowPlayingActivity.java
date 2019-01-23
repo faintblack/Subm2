@@ -1,4 +1,4 @@
-package com.system.perfect.submission2;
+package com.system.perfect.submission2.detail;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +13,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+import com.system.perfect.submission2.BuildConfig;
+import com.system.perfect.submission2.R;
 import com.system.perfect.submission2.model.NowPlayingMovie;
 
 import org.json.JSONArray;
