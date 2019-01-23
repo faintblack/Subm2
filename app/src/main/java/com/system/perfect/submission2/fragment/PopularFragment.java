@@ -21,6 +21,7 @@ import com.system.perfect.submission2.BuildConfig;
 import com.system.perfect.submission2.R;
 import com.system.perfect.submission2.adapter.UpcomingAdapter;
 import com.system.perfect.submission2.detail.DetailUpcomingActivity;
+import com.system.perfect.submission2.model.PopularMovie;
 import com.system.perfect.submission2.model.UpcomingMovie;
 import com.system.perfect.submission2.support.ItemClickSupport;
 
@@ -30,14 +31,15 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class UpcomingFragment extends Fragment {
-    private final String TAG = "UpcomingFragment";
+public class PopularFragment extends Fragment {
 
-    private RecyclerView rvUpcoming;
-    final ArrayList<UpcomingMovie> upcomingMovies = new ArrayList<>();
+    private final String TAG = "PopularFragment";
+
+    private RecyclerView rvPopular;
+    final ArrayList<PopularMovie> popularMovies = new ArrayList<>();
     private View v;
 
-    public UpcomingFragment(){
+    public PopularFragment(){
 
     }
 
@@ -50,34 +52,34 @@ public class UpcomingFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.upcoming_layout, container, false);
-        rvUpcoming = v.findViewById(R.id.rv_upcoming);
-        rvUpcoming.setHasFixedSize(true);
+        v = inflater.inflate(R.layout.all_movies_layout, container, false);
+        rvPopular = v.findViewById(R.id.rv_upcoming);
+        rvPopular.setHasFixedSize(true);
         showUpcomingList();
         return v;
     }
 
     public void showUpcomingList(){
-        rvUpcoming.setLayoutManager(new GridLayoutManager(getContext(),2));
-        UpcomingAdapter mAdapter = new UpcomingAdapter(getContext());
-        mAdapter.setMovieList(upcomingMovies);
-        rvUpcoming.setAdapter(mAdapter);
-        //ganti
-        ItemClickSupport.addTo(rvUpcoming).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+        rvPopular.setLayoutManager(new GridLayoutManager(getContext(),2));
+        //UpcomingAdapter mAdapter = new UpcomingAdapter(getContext());
+        //mAdapter.setMovieList(popularMovies);
+        //rvPopular.setAdapter(mAdapter);
+
+        /*ItemClickSupport.addTo(rvPopular).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-                UpcomingMovie item = upcomingMovies.get(position);
+                UpcomingMovie item = popularMovies.get(position);
                 Intent detailMovieIntent = new Intent(getActivity(), DetailUpcomingActivity.class);
                 detailMovieIntent.putExtra(DetailUpcomingActivity.EXTRA_MOVIE, item);
                 startActivity(detailMovieIntent);
             }
-        });
+        }); */
     }
 
     private void requestMovieData() {
 
         String API = BuildConfig.TMDB_API_KEY;
-        String url = BuildConfig.TMDB_BASE_URL + "movie/upcoming?api_key=" + API + "&language=en-US";
+        String url = BuildConfig.TMDB_BASE_URL + "movie/popular?api_key=" + API + "&language=en-US";
 
         //RequestQueue initialized
         RequestQueue mRequestQueue = Volley.newRequestQueue(getContext());
@@ -92,8 +94,8 @@ public class UpcomingFragment extends Fragment {
                     JSONArray data = obj.getJSONArray("results");
                     for (int i = 0; i < data.length(); i++) {
                         JSONObject movie = data.getJSONObject(i);
-                        UpcomingMovie item = new UpcomingMovie(movie);
-                        upcomingMovies.add(item);
+                        PopularMovie item = new PopularMovie(movie);
+                        popularMovies.add(item);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -107,5 +109,4 @@ public class UpcomingFragment extends Fragment {
         });
         mRequestQueue.add(mStringRequest);
     }
-
 }

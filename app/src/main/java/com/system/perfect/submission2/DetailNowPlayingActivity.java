@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class DetailMovieActivity extends AppCompatActivity {
+public class DetailNowPlayingActivity extends AppCompatActivity {
 
     public static final String EXTRA_MOVIE = "EXTRA_MOVIE";
     String id, backdrop_path, budget, homepage, original_language, original_title, overview, popularity, poster_path,
@@ -39,7 +39,7 @@ public class DetailMovieActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_movie);
+        setContentView(R.layout.activity_detail_nowplaying);
 
         tl = findViewById(R.id.toolbar);
         setSupportActionBar(tl);

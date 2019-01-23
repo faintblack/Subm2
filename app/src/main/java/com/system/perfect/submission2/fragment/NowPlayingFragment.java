@@ -18,7 +18,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.system.perfect.submission2.BuildConfig;
-import com.system.perfect.submission2.DetailMovieActivity;
+import com.system.perfect.submission2.DetailNowPlayingActivity;
 import com.system.perfect.submission2.R;
 import com.system.perfect.submission2.adapter.NowPlayingAdapter;
 import com.system.perfect.submission2.model.NowPlayingMovie;
@@ -68,8 +68,8 @@ public class NowPlayingFragment extends Fragment {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
                 NowPlayingMovie item = nowPlayingMovies.get(position);
-                Intent detailMovieIntent = new Intent(getActivity(), DetailMovieActivity.class);
-                detailMovieIntent.putExtra(DetailMovieActivity.EXTRA_MOVIE, item);
+                Intent detailMovieIntent = new Intent(getActivity(), DetailNowPlayingActivity.class);
+                detailMovieIntent.putExtra(DetailNowPlayingActivity.EXTRA_MOVIE, item);
                 startActivity(detailMovieIntent);
             }
         });
@@ -79,7 +79,7 @@ public class NowPlayingFragment extends Fragment {
     private void requestMovieData() {
 
         String API = BuildConfig.TMDB_API_KEY;
-        String url = "https://api.themoviedb.org/3/movie/now_playing?api_key=" + API + "&language=en-US";
+        String url = BuildConfig.TMDB_BASE_URL + "movie/now_playing?api_key=" + API + "&language=en-US";
 
         //RequestQueue initialized
         RequestQueue mRequestQueue = Volley.newRequestQueue(getContext());

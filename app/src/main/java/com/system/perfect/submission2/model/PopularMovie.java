@@ -8,12 +8,12 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class UpcomingMovie implements Parcelable {
+public class PopularMovie implements Parcelable {
     private String id, popularity, genre, vote_average, title, poster_path, original_language, original_title,
             backdrop_path, overview, release_date;
 
 
-    public UpcomingMovie(JSONObject obj){
+    public PopularMovie(JSONObject obj){
         try{
             // Get data from JSON
             String id = obj.getString("id");
@@ -44,6 +44,22 @@ public class UpcomingMovie implements Parcelable {
         } catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getPopularity() {
+        return popularity;
+    }
+
+    public void setPopularity(String popularity) {
+        this.popularity = popularity;
     }
 
     public String getGenre() {
@@ -119,31 +135,15 @@ public class UpcomingMovie implements Parcelable {
     }
 
 
-
-
     @Override
     public int describeContents() {
         return 0;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getPopularity() {
-        return popularity;
-    }
-
-    public void setPopularity(String popularity) {
-        this.popularity = popularity;
-    }
-
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.id);
+        dest.writeString(this.popularity);
         dest.writeString(this.genre);
         dest.writeString(this.vote_average);
         dest.writeString(this.title);
@@ -153,12 +153,11 @@ public class UpcomingMovie implements Parcelable {
         dest.writeString(this.backdrop_path);
         dest.writeString(this.overview);
         dest.writeString(this.release_date);
-        dest.writeString(this.id);
-        dest.writeString(this.popularity);
-
     }
 
-    protected UpcomingMovie(Parcel in) {
+    protected PopularMovie(Parcel in) {
+        this.id = in.readString();
+        this.popularity = in.readString();
         this.genre = in.readString();
         this.vote_average = in.readString();
         this.title = in.readString();
@@ -168,19 +167,17 @@ public class UpcomingMovie implements Parcelable {
         this.backdrop_path = in.readString();
         this.overview = in.readString();
         this.release_date = in.readString();
-        this.id = in.readString();
-        this.popularity = in.readString();
     }
 
-    public static final Parcelable.Creator<UpcomingMovie> CREATOR = new Parcelable.Creator<UpcomingMovie>() {
+    public static final Parcelable.Creator<PopularMovie> CREATOR = new Parcelable.Creator<PopularMovie>() {
         @Override
-        public UpcomingMovie createFromParcel(Parcel source) {
-            return new UpcomingMovie(source);
+        public PopularMovie createFromParcel(Parcel source) {
+            return new PopularMovie(source);
         }
 
         @Override
-        public UpcomingMovie[] newArray(int size) {
-            return new UpcomingMovie[size];
+        public PopularMovie[] newArray(int size) {
+            return new PopularMovie[size];
         }
     };
 }
