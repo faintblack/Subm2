@@ -1,12 +1,9 @@
 package com.system.perfect.submission2;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,8 +13,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
-import com.system.perfect.submission2.model.Movie;
-import com.system.perfect.submission2.model.Movie1;
+import com.system.perfect.submission2.model.NowPlayingMovie;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -59,7 +55,9 @@ public class DetailMovieActivity extends AppCompatActivity {
         imgPoster_path = findViewById(R.id.posterSmall);
         imgBackdrop_path = findViewById(R.id.backdrop_image);
 
-        Movie data = getIntent().getParcelableExtra(EXTRA_MOVIE);
+
+
+        NowPlayingMovie data = getIntent().getParcelableExtra(EXTRA_MOVIE);
         int idMovie = data.getId();
         //requestMovieData(idMovie);
 

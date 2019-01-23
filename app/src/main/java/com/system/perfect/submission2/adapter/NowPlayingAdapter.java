@@ -13,23 +13,23 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.system.perfect.submission2.BuildConfig;
 import com.system.perfect.submission2.R;
-import com.system.perfect.submission2.model.Movie;
+import com.system.perfect.submission2.model.NowPlayingMovie;
 
 import java.util.ArrayList;
 
 public class NowPlayingAdapter extends RecyclerView.Adapter<NowPlayingAdapter.ViewHolder> {
     private Context context;
-    private ArrayList<Movie> movieList;
+    private ArrayList<NowPlayingMovie> movieList;
 
     public NowPlayingAdapter(Context context) {
         this.context = context;
     }
 
-    public ArrayList<Movie> getMovieList() {
+    public ArrayList<NowPlayingMovie> getMovieList() {
         return movieList;
     }
 
-    public void setMovieList(ArrayList<Movie> movieList) {
+    public void setMovieList(ArrayList<NowPlayingMovie> movieList) {
         this.movieList = movieList;
     }
 

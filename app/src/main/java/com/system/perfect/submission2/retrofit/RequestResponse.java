@@ -2,14 +2,14 @@ package com.system.perfect.submission2.retrofit;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.system.perfect.submission2.model.Movie1;
+import com.system.perfect.submission2.model.UpcomingMovie;
 
 import java.util.List;
 
 public class RequestResponse {
     @SerializedName("results")
     @Expose
-    private List<Movie1> results = null;
+    private List<UpcomingMovie> results = null;
     @SerializedName("page")
     @Expose
     private Integer page;
@@ -20,11 +20,11 @@ public class RequestResponse {
     @Expose
     private Integer totalPages;
 
-    public List<Movie1> getResults() {
+    public List<UpcomingMovie> getResults() {
         return results;
     }
 
-    public void setResults(List<Movie1> results) {
+    public void setResults(List<UpcomingMovie> results) {
         this.results = results;
     }
 

@@ -8,12 +8,12 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class Movie implements Parcelable {
+public class UpcomingMovie implements Parcelable {
     private String genre, vote_average, title, poster_path, original_language, original_title,
             backdrop_path, overview, release_date;
     private int id, popularity;
 
-    public Movie(JSONObject obj){
+    public UpcomingMovie(JSONObject obj){
         try{
             // Get data from JSON
             int id = obj.getInt("id");
@@ -155,7 +155,7 @@ public class Movie implements Parcelable {
         dest.writeInt(this.popularity);
     }
 
-    protected Movie(Parcel in) {
+    protected UpcomingMovie(Parcel in) {
         this.genre = in.readString();
         this.vote_average = in.readString();
         this.title = in.readString();
@@ -169,15 +169,15 @@ public class Movie implements Parcelable {
         this.popularity = in.readInt();
     }
 
-    public static final Parcelable.Creator<Movie> CREATOR = new Parcelable.Creator<Movie>() {
+    public static final Parcelable.Creator<UpcomingMovie> CREATOR = new Parcelable.Creator<UpcomingMovie>() {
         @Override
-        public Movie createFromParcel(Parcel source) {
-            return new Movie(source);
+        public UpcomingMovie createFromParcel(Parcel source) {
+            return new UpcomingMovie(source);
         }
 
         @Override
-        public Movie[] newArray(int size) {
-            return new Movie[size];
+        public UpcomingMovie[] newArray(int size) {
+            return new UpcomingMovie[size];
         }
     };
 }

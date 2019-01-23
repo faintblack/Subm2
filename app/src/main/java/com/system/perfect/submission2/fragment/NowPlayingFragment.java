@@ -21,7 +21,7 @@ import com.system.perfect.submission2.BuildConfig;
 import com.system.perfect.submission2.DetailMovieActivity;
 import com.system.perfect.submission2.R;
 import com.system.perfect.submission2.adapter.NowPlayingAdapter;
-import com.system.perfect.submission2.model.Movie;
+import com.system.perfect.submission2.model.NowPlayingMovie;
 import com.system.perfect.submission2.support.ItemClickSupport;
 
 import org.json.JSONArray;
@@ -34,7 +34,7 @@ public class NowPlayingFragment extends Fragment {
     private final String TAG = "NowPlayingFragment";
 
     private RecyclerView rvNowPlaying;
-    final ArrayList<Movie> nowPlayingMovies = new ArrayList<>();
+    final ArrayList<NowPlayingMovie> nowPlayingMovies = new ArrayList<>();
     private View v;
     private NowPlayingAdapter mAdapter;
 
@@ -67,7 +67,7 @@ public class NowPlayingFragment extends Fragment {
         ItemClickSupport.addTo(rvNowPlaying).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-                Movie item = nowPlayingMovies.get(position);
+                NowPlayingMovie item = nowPlayingMovies.get(position);
                 Intent detailMovieIntent = new Intent(getActivity(), DetailMovieActivity.class);
                 detailMovieIntent.putExtra(DetailMovieActivity.EXTRA_MOVIE, item);
                 startActivity(detailMovieIntent);
@@ -79,7 +79,7 @@ public class NowPlayingFragment extends Fragment {
     private void requestMovieData() {
 
         String API = BuildConfig.TMDB_API_KEY;
-        String url = "https://api.themoviedb.org/3/movie/now_playing?api_key=" + API ;
+        String url = "https://api.themoviedb.org/3/movie/now_playing?api_key=" + API + "&language=en-US";
 
         //RequestQueue initialized
         RequestQueue mRequestQueue = Volley.newRequestQueue(getContext());
@@ -94,7 +94,7 @@ public class NowPlayingFragment extends Fragment {
                     JSONArray data = obj.getJSONArray("results");
                     for (int i = 0; i < data.length(); i++) {
                         JSONObject movie = data.getJSONObject(i);
-                        Movie item = new Movie(movie);
+                        NowPlayingMovie item = new NowPlayingMovie(movie);
                         nowPlayingMovies.add(item);
                     }
                 } catch (JSONException e) {
